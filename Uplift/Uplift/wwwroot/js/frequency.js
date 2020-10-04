@@ -5,27 +5,27 @@ $(document).ready(function () {
 
 
 function loadDataTable() {
-    dataTable = $("#tblData-category").DataTable({
+    dataTable = $("#tblData-frequency").DataTable({
         "ajax": {
-            "url": "/admin/category/GetAll",
+            "url": "/Admin/frequency/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
             //właściwe kolumny z jsona
             { "data": "name", "width": "50%" },
-            { "data": "displayOrder", "width": "20%" },
+            { "data": "frequencyCount", "width": "20%" },
             {
                 // renderowanie przycisków
                 "data": "id",
                 "render": function (data) {
                     return `
                         <div class="text-center">
-                        <a href="/Admin/category/Upsert/${data}" class="btn btn-success text-white" style= "cursor:pointer; width:100px">
+                        <a href="/Admin/frequency/Upsert/${data}" class="btn btn-success text-white" style= "cursor:pointer; width:100px">
                             <i class="far fa-edit"></i> Edit
                         </a>
 
-                        <a class="btn btn-danger text-white" style= "cursor:pointer; width:100px" onclick=Delete("/Admin/category/Delete/${data}")>
+                        <a class="btn btn-danger text-white" style= "cursor:pointer; width:100px" onclick=Delete("/Admin/frequency/Delete/${data}")>
                             <i class="far fa-trash-alt"></i> Delete
                         </a>
                         </div>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Uplift.Models
 {
-    public class Category
+    public class Frequency
     {
         [Key]
         public int Id { get; set; }
@@ -14,7 +14,7 @@ namespace Uplift.Models
         [Display(Name = "Category Name")]
         public string Name { get; set; }
 
-        [Display(Name = "Display Order")]
-        public int DisplayOrder { get; set; }
+        [Display(Name = "Frequency Count")]
+        public int FrequencyCount { get; set; }
     }
 }
