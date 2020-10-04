@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Uplift.DataAccess.Data.Repository.IRepository
 {
-    class UnitOfWork : IUnitOfWork
+    public class SQLUnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _db;
 
-        public UnitOfWork(ApplicationDbContext db)
+        public SQLUnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Category= new CategoryRepository(_db);
