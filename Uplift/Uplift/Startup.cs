@@ -38,6 +38,12 @@ namespace Uplift
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUnitOfWork, SQLUnitOfWork>();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddRazorPages();
             services.ConfigureApplicationCookie(options =>
@@ -69,6 +75,7 @@ namespace Uplift
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
