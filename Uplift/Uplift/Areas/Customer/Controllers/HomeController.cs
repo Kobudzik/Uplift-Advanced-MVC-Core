@@ -56,7 +56,7 @@ namespace Uplift.Controllers
             }
             else
             {
-                //jeśli sesja juz jest to deserializuje ją i dodaje do nowej calosc
+                //jeśli sesja juz jest to deserializuje ją i dodaje przedmioty serviceId
                 sessionList = HttpContext.Session.GetObject<List<int>>(StaticDetails.SessionCart);
                 if (!sessionList.Contains(serviceId))
                 {

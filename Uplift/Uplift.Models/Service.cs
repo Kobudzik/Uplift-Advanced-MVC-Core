@@ -26,11 +26,16 @@ namespace Uplift.Models
         [Display(Name= "Image")]
         public string ImageUrl { get; set; }
 
+
+
+
+
         [Required]
         public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
+
 
 
         [Required]
