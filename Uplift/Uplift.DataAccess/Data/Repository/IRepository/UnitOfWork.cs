@@ -18,6 +18,7 @@ namespace Uplift.DataAccess.Data.Repository.IRepository
             OrderHeader= new OrderHeaderRepository(_db);
             OrderDetails=new OrderDetailsRepository(_db);
             User=new UserRepository(_db);
+            SP_Call = new StoredProcedureCal(_db);
 
 
         }
@@ -28,6 +29,9 @@ namespace Uplift.DataAccess.Data.Repository.IRepository
         public IOrderHeaderRepository OrderHeader { get; private set; }
         public IOrderDetailsRepository OrderDetails { get; private set; }
         public IUserRepository User { get; private set; }
+        public IStoredProcedureCall SP_Call { get; private set; }
+
+
 
 
         public void Save()
