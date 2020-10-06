@@ -43,6 +43,7 @@ namespace Uplift.Areas.Admin.Controllers
             return View(CartVM);
         }
 
+
         public IActionResult Summary()
         {
             if (HttpContext.Session.GetObject<List<int>>(StaticDetails.SessionCart) != null)
