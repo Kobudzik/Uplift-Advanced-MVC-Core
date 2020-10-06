@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Uplift.DataAccess.Data.Repository
 {
-    public class FrequencyRepository : SQLRepository<Frequency>, IFrequencyRepository
+    public class FrequencyRepository : Repository<Frequency>, IFrequencyRepository
     {
         private readonly ApplicationDbContext _db;
 

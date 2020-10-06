@@ -9,7 +9,7 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository
 {
-    public class OrderDetailsRepository : SQLRepository<OrderDetails>, IOrderDetailsRepository
+    public class OrderDetailsRepository : Repository<OrderDetails>, IOrderDetailsRepository
     {
         private readonly ApplicationDbContext _db;
 

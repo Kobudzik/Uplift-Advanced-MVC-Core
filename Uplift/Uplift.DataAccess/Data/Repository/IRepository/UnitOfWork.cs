@@ -5,11 +5,11 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository.IRepository
 {
-    public class SQLUnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _db;
 
-        public SQLUnitOfWork(ApplicationDbContext db)
+        public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
             Category= new CategoryRepository(_db);
@@ -17,6 +17,8 @@ namespace Uplift.DataAccess.Data.Repository.IRepository
             Service= new ServiceRepository(_db);
             OrderHeader= new OrderHeaderRepository(_db);
             OrderDetails=new OrderDetailsRepository(_db);
+            User=new UserRepository(_db);
+
 
         }
 
@@ -25,6 +27,7 @@ namespace Uplift.DataAccess.Data.Repository.IRepository
         public IServiceRepository Service { get; private set; }
         public IOrderHeaderRepository OrderHeader { get; private set; }
         public IOrderDetailsRepository OrderDetails { get; private set; }
+        public IUserRepository User { get; private set; }
 
 
         public void Save()

@@ -37,7 +37,7 @@ namespace Uplift
                 .AddDefaultTokenProviders();
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped<IUnitOfWork, SQLUnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);

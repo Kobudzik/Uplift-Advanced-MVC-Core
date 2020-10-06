@@ -9,7 +9,7 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository
 {
-    public class ServiceRepository : SQLRepository<Service>, IServiceRepository
+    public class ServiceRepository : Repository<Service>, IServiceRepository
     {
         private readonly ApplicationDbContext _db;
 

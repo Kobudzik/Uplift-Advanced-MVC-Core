@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Uplift.DataAccess.Data.Repository.IRepository
 {
-    public class SQLRepository <T> : IRepository<T> where T : class
+    public class Repository <T> : IRepository<T> where T : class
     {
         protected readonly DbContext Context;
         internal DbSet<T> dbSet;
 
-        public SQLRepository(DbContext context)
+        public Repository(DbContext context)
         {
             Context = context;
             this.dbSet = context.Set<T>();
