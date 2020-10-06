@@ -12,6 +12,7 @@ using Uplift.DataAccess.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Uplift.DataAccess.Data.Initializer;
 using Uplift.DataAccess.Data.Repository.IRepository;
 
 namespace Uplift
@@ -38,6 +39,7 @@ namespace Uplift
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -60,7 +62,7 @@ namespace Uplift
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInit)
         {
             if (env.IsDevelopment())
             {
@@ -76,6 +78,7 @@ namespace Uplift
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
+            dbInit.Initialzie();
 
             app.UseRouting();
 
